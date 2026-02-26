@@ -245,9 +245,7 @@ S3 สามารถส่ง Notification ไปยัง Lambda, SQS, หร�
 
 Lambda ต้องมีสิทธิ์ถูกต้องในการเข้าถึง S3 — เราจะสร้างแบบ Least Privilege
 
-1. เข้า **IAM** → **Roles** → **Create role**
-2. **Trusted entity:** AWS service → **Lambda** → Next
-3. **สร้าง Custom Policy ก่อน** (แทนที่จะใช้ Managed Policy กว้างๆ):
+1. เข้า **IAM** → **Policy** → **สร้าง Custom Policy ก่อน** (แทนที่จะใช้ Managed Policy กว้างๆ):
    - คลิก **Create policy** (เปิด Tab ใหม่)
    - เลือก **JSON** tab → วางโค้ดนี้:
 
@@ -286,9 +284,10 @@ Lambda ต้องมีสิทธิ์ถูกต้องในการ�
 }
 ```
 
-4. Policy name: `pipeline-lambda-policy` → **Create policy**
-5. กลับไปหน้า Create Role → Refresh → ค้นหา `pipeline-lambda-policy` → เลือก → Next
-6. Role name: `pipeline-lambda-role` → **Create role**
+2. Policy name: `pipeline-lambda-policy` → **Create policy**
+3. กลับไปหน้า **IAM** → **Roles** → **Create role**
+4. **Trusted entity:** AWS service → **Lambda** → Next Create Role → ค้นหา `pipeline-lambda-policy` → เลือก → Next
+5. Role name: `pipeline-lambda-role` → **Create role**
 
 > 🔒 **Security Note:** เราระบุ Resource ARN แบบเจาะจง ไม่ใช้ `"Resource": "*"` เพราะถ้า Lambda ถูก Compromise จะได้ไม่เข้า Resource อื่นได้
 

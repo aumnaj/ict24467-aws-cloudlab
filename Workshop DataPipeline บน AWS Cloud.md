@@ -1381,7 +1381,7 @@ Lambda ต้องมีสิทธิ์เรียก Step Functions แล
 {
   "Sid": "S3CopyObject",
   "Effect": "Allow",
-  "Action": ["s3:CopyObject"],
+  "Action": ["s3:*"],
   "Resource": "arn:aws:s3:::pipeline-raw-[ชื่อคุณ]-*/*"
 },
 {

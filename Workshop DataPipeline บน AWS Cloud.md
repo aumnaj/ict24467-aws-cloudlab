@@ -1378,10 +1378,12 @@ Lambda ต้องมีสิทธิ์เรียก Step Functions แล
 เพิ่ม Statement ใน `pipeline-lambda-policy`:
 
 ```json
-{
-  "Sid": "S3CopyObject",
-  "Effect": "Allow",
-  "Action": ["s3:*"],
+	{
+			"Sid": "S3CopyObject",
+			"Effect": "Allow",
+			"Action": [
+				"s3:*"
+			],
   "Resource": "arn:aws:s3:::pipeline-raw-[ชื่อคุณ]-*/*"
 },
 {
